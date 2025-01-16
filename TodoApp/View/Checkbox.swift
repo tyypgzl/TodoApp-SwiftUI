@@ -11,6 +11,7 @@ struct TodoCheckbox: ToggleStyle {
     func makeBody(configuration: Configuration) -> some View {
         let unSelectedColor = Color(red: 51, green: 51, blue: 51)
         let selectedColor = Color(red: 255, green: 90, blue: 96)
+        
         HStack {
             RoundedRectangle(cornerRadius: 6)
                 .strokeBorder(configuration.isOn ? selectedColor : unSelectedColor, lineWidth: 2)
@@ -41,6 +42,7 @@ struct SubTodoCheckbox: ToggleStyle {
     func makeBody(configuration: Configuration) -> some View {
         let unSelectedColor = Color(red: 51, green: 51, blue: 51)
         let selectedColor = Color(red: 255, green: 89, blue: 96)
+        
         HStack {
             Circle()
                 .strokeBorder(configuration.isOn ? Color.clear : unSelectedColor, lineWidth: 4)

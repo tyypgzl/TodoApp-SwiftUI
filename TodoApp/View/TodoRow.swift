@@ -18,10 +18,12 @@ struct TodoRow: View {
                     Text(todo.title)
                         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                         .padding(.leading)
+                        .foregroundColor(.onSurface)
                         
                     if todo.subTodos.count > 0 {
                         Image(systemName: "chevron.down")
                             .padding(.trailing)
+                            .foregroundColor(.onSurface)
                     }
                     
                     
@@ -44,6 +46,7 @@ struct TodoRow: View {
                         .padding(.leading, 40)
                     }
                 }
+                .foregroundColor(.onSurface)
                 
             }
 
@@ -51,7 +54,7 @@ struct TodoRow: View {
         .onTapGesture {
             showSubTodos.toggle()
         }
-        .background(showSubTodos && todo.subTodos.count > 0 ? Color(red: 238, green: 238, blue: 238) : .white)
+        .background(showSubTodos && todo.subTodos.count > 0 ? .container : .white)
        
     }
 }

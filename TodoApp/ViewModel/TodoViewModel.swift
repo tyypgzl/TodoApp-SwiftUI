@@ -9,6 +9,7 @@ import SwiftUI
 
 @Observable
 final class TodoViewModel {
+    var isAddTodoSheetPresented: Bool = false
     var todos: [Todo] = [
         Todo(
             title: "SwiftUI",

@@ -13,24 +13,35 @@ struct TodoView: View {
     var body: some View {
         let date = Date()
         
-        ScrollView {
-            VStack(alignment: .leading, spacing: 0) {
-                Text("tasked")
-                    .font(.title)
-                    .bold()
-                    .padding()
-                
-                ForEach($viewModel.todos) { $todo in
-                    TodoRow(todo: $todo)
+        ZStack {
+            ScrollView {
+                VStack(alignment: .leading, spacing: 0) {
+                    Text("tasked")
+                        .font(.title)
+                        .bold()
+                        .padding()
                     
+                    ForEach($viewModel.todos) { $todo in
+                        TodoRow(todo: $todo)
+                    }
+                }
+                .frame(maxWidth: .infinity)
+            }
+            FABButton(
+                onPress: {
+                    viewModel.isAddTodoSheetPresented = true
+                }
+            )
+        }.navigationTitle(Text(date, style: .date))
+            .sheet(isPresented: $viewModel.isAddTodoSheetPresented){
+                NavigationStack {
+                    AddTodoView(viewModel: $viewModel)
                 }
             }
-            .frame(maxWidth: .infinity)
-        }
-        .navigationTitle(Text(date, style: .date))
     }
 }
 
 #Preview {
     TodoView()
 }
+
