@@ -8,22 +8,21 @@
 import SwiftUI
 
 struct TodoCheckbox: ToggleStyle {
+    @Environment(\.theme) var theme
+    
     func makeBody(configuration: Configuration) -> some View {
-        let unSelectedColor = Color(red: 51, green: 51, blue: 51)
-        let selectedColor = Color(red: 255, green: 90, blue: 96)
-        
         HStack {
             RoundedRectangle(cornerRadius: 6)
-                .strokeBorder(configuration.isOn ? selectedColor : unSelectedColor, lineWidth: 2)
+                .strokeBorder(configuration.isOn ? theme.primary : theme.checkbox, lineWidth: 2)
                 .background(
                     RoundedRectangle(cornerRadius: 6)
-                        .fill(configuration.isOn ? selectedColor : unSelectedColor)
+                        .fill(configuration.isOn ? theme.primary : theme.checkbox)
                 )
                 .frame(width: 26, height: 26)
                 .overlay(
                     configuration.isOn
                         ? Image(systemName: "checkmark")
-                            .foregroundColor(.white)
+                        .foregroundColor(theme.backgorund)
                             .font(.system(size: 14, weight: .bold))
                         : nil
                 )
@@ -33,24 +32,23 @@ struct TodoCheckbox: ToggleStyle {
             
             configuration.label
                 .strikethrough(configuration.isOn)
-                .foregroundColor(configuration.isOn ? .gray : .black)
+                .foregroundColor(configuration.isOn ? theme.disabled : theme.onBackground)
         }
     }
 }
 
 struct SubTodoCheckbox: ToggleStyle {
+    @Environment(\.theme) var theme
+    
     func makeBody(configuration: Configuration) -> some View {
-        let unSelectedColor = Color(red: 51, green: 51, blue: 51)
-        let selectedColor = Color(red: 255, green: 89, blue: 96)
-        
         HStack {
             Circle()
-                .strokeBorder(configuration.isOn ? Color.clear : unSelectedColor, lineWidth: 4)
+                .strokeBorder(configuration.isOn ? Color.clear : theme.checkbox, lineWidth: 4)
                 .frame(width: 26, height: 26)
                 .overlay(
                     configuration.isOn
                         ? Image(systemName: "checkmark")
-                        .foregroundColor(configuration.isOn ? selectedColor : .white)
+                        .foregroundColor(configuration.isOn ? theme.primary : theme.backgorund)
                             .font(.system(size: 18, weight: .bold))
                         : nil
                 )
@@ -60,13 +58,7 @@ struct SubTodoCheckbox: ToggleStyle {
             
             configuration.label
                 .strikethrough(configuration.isOn)
-                .foregroundColor(configuration.isOn ? .gray : .black)
+                .foregroundColor(configuration.isOn ? theme.disabled : theme.onBackground)
         }
-    }
-}
-
-extension Color {
-    init(red: Int, green: Int, blue: Int) {
-        self.init(red: Double(red) / 255.0, green: Double(green) / 255.0, blue: Double(blue) / 255.0)
     }
 }

@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct FABButton: View {
+    @Environment(\.theme) var theme
     let onPress: () -> Void
+    
     var body: some View {
         VStack {
             Spacer()
@@ -18,10 +20,10 @@ struct FABButton: View {
                     Image(systemName: "plus")
                         .font(.system(size: 24))
                         .padding()
-                        .background(.accent)
-                        .foregroundColor(.onAccent)
+                        .background(theme.primary)
+                        .foregroundColor(theme.onPrimary)
                         .clipShape(Circle())
-                        .shadow(color: .black.opacity(0.3), radius: 5, x: 2, y: 2)
+                        .shadow(color: theme.onBackground.opacity(0.3), radius: 5, x: 2, y: 2)
                 }
                 .padding()
             }

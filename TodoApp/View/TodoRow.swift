@@ -10,6 +10,7 @@ import SwiftUI
 struct TodoRow: View {
     @Binding var todo: Todo
     @State var showSubTodos: Bool = false
+    @Environment(\.theme) var theme
 
     var body: some View {
         VStack {
@@ -18,17 +19,14 @@ struct TodoRow: View {
                     Text(todo.title)
                         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                         .padding(.leading)
-                        .foregroundColor(.onSurface)
+                        .foregroundColor(theme.onBackground)
                         
                     if todo.subTodos.count > 0 {
                         Image(systemName: "chevron.down")
                             .padding(.trailing)
-                            .foregroundColor(.onSurface)
+                            .foregroundColor(theme.onBackground)
                     }
-                    
-                    
                 }
-                
             }
             .toggleStyle(TodoCheckbox())
             .padding([.top, .bottom, .leading])
@@ -46,15 +44,14 @@ struct TodoRow: View {
                         .padding(.leading, 40)
                     }
                 }
-                .foregroundColor(.onSurface)
+                .foregroundColor(theme.onBackground)
                 
             }
-
         }
         .onTapGesture {
             showSubTodos.toggle()
         }
-        .background(showSubTodos && todo.subTodos.count > 0 ? .container : .white)
+        .background(showSubTodos && todo.subTodos.count > 0 ? theme.fill : theme.backgorund)
        
     }
 }

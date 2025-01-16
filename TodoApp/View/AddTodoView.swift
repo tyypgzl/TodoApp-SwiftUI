@@ -14,6 +14,7 @@ struct AddTodoView: View {
     @State var isPresentedAlert: Bool = false
 
     @Environment(\.dismiss) var dismiss
+    @Environment(\.theme) var theme
     @Binding var viewModel: TodoViewModel
 
     var body: some View {
@@ -44,7 +45,6 @@ struct AddTodoView: View {
             .padding(.bottom)
             LazyVStack {
                 ForEach(subTodoList) { subTodo in
-
                     Text(subTodo.title)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .fontWeight(Font.Weight.medium)
@@ -53,9 +53,9 @@ struct AddTodoView: View {
                         .padding(.vertical, 4)
                         .background(
                             RoundedRectangle(cornerRadius: 4)
-                                .fill(Color.white)
+                                .fill(theme.backgorund)
                         )
-                        .foregroundColor(Color.black)
+                        .foregroundColor(theme.onBackground)
                 }
             }
             .listStyle(.plain)
@@ -96,7 +96,9 @@ struct AddTodoView: View {
                 )
             )
         }
+        .background(theme.backgorund)
     }
+        
 }
 
 #Preview {

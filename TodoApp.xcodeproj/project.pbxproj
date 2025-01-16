@@ -18,6 +18,9 @@
 		75339E122D35557A0048D153 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75339E112D3555790048D153 /* Todo.swift */; };
 		75339E142D3633170048D153 /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75339E132D3633120048D153 /* Checkbox.swift */; };
 		75339E162D36336E0048D153 /* TodoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75339E152D36336C0048D153 /* TodoRow.swift */; };
+		754B34082D390681007B874D /* ThemeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754B34072D390681007B874D /* ThemeSelectionView.swift */; };
+		75DF8F2C2D380109003BE104 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DF8F2B2D380107003BE104 /* Theme.swift */; };
+		75DF8F2E2D38E8B4003BE104 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DF8F2D2D38E8B2003BE104 /* Color.swift */; };
 		75E99BBF2D37A5CB007EF730 /* FabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E99BBE2D37A5C6007EF730 /* FabButton.swift */; };
 		75E99BC12D37A953007EF730 /* AddTodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E99BC02D37A953007EF730 /* AddTodoView.swift */; };
 /* End PBXBuildFile section */
@@ -54,6 +57,9 @@
 		75339E112D3555790048D153 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		75339E132D3633120048D153 /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
 		75339E152D36336C0048D153 /* TodoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoRow.swift; sourceTree = "<group>"; };
+		754B34072D390681007B874D /* ThemeSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSelectionView.swift; sourceTree = "<group>"; };
+		75DF8F2B2D380107003BE104 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		75DF8F2D2D38E8B2003BE104 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		75E99BBE2D37A5C6007EF730 /* FabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FabButton.swift; sourceTree = "<group>"; };
 		75E99BC02D37A953007EF730 /* AddTodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -128,6 +134,7 @@
 		75339DDA2D34F2590048D153 /* TodoApp */ = {
 			isa = PBXGroup;
 			children = (
+				75DF8F2A2D37FFAD003BE104 /* Theme */,
 				75339E102D3555740048D153 /* Model */,
 				75339E0F2D3555620048D153 /* ViewModel */,
 				75339E0E2D3555510048D153 /* View */,
@@ -166,6 +173,7 @@
 		75339E0E2D3555510048D153 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				754B34072D390681007B874D /* ThemeSelectionView.swift */,
 				75E99BBE2D37A5C6007EF730 /* FabButton.swift */,
 				75339E152D36336C0048D153 /* TodoRow.swift */,
 				75339E132D3633120048D153 /* Checkbox.swift */,
@@ -190,6 +198,15 @@
 				75339E112D3555790048D153 /* Todo.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		75DF8F2A2D37FFAD003BE104 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				75DF8F2D2D38E8B2003BE104 /* Color.swift */,
+				75DF8F2B2D380107003BE104 /* Theme.swift */,
+			);
+			path = Theme;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,12 +357,15 @@
 				75339E142D3633170048D153 /* Checkbox.swift in Sources */,
 				75E99BBF2D37A5CB007EF730 /* FabButton.swift in Sources */,
 				75339E122D35557A0048D153 /* Todo.swift in Sources */,
+				754B34082D390681007B874D /* ThemeSelectionView.swift in Sources */,
 				75339E162D36336E0048D153 /* TodoRow.swift in Sources */,
+				75DF8F2E2D38E8B4003BE104 /* Color.swift in Sources */,
 				75339E032D3514270048D153 /* Router.swift in Sources */,
 				75339E0D2D3547DD0048D153 /* TodoViewModel.swift in Sources */,
 				75E99BC12D37A953007EF730 /* AddTodoView.swift in Sources */,
 				75339DDE2D34F2590048D153 /* TodoApp.swift in Sources */,
 				75339DF12D34FF4A0048D153 /* TodoView.swift in Sources */,
+				75DF8F2C2D380109003BE104 /* Theme.swift in Sources */,
 				75339DEB2D34FECD0048D153 /* Route.swift in Sources */,
 				75339DE62D34F7360048D153 /* SplashView.swift in Sources */,
 			);

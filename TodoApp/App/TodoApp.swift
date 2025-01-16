@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import UIKit
 
 @main
 struct TodoApp: App {
-    @State var router: Router = Router(root: .splash)
+    @State private var router: Router = Router(root: .splash)
+    @AppStorage("selected_theme") private var selectedThemeType: ThemeType = .blue
+    @State private var theme: Theme = .blue
     
     var body: some Scene {
         WindowGroup {
@@ -20,6 +23,12 @@ struct TodoApp: App {
                     }
             }
             .environment(\.router, router)
+            .environment(\.theme, theme)
+            .preferredColorScheme(theme.colorScheme)
+            .accentColor(theme.primary)
+            .onChange(of: selectedThemeType) { _, newValue in
+                theme = Theme.from(newValue)
+            }
         }
     }
 }
